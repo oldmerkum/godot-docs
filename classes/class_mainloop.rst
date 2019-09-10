@@ -28,6 +28,8 @@ Methods
 +-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                    | :ref:`_finalize<class_MainLoop_method__finalize>` **(** **)** virtual                                                                                            |
 +-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| void                    | :ref:`_global_menu_action<class_MainLoop_method__global_menu_action>` **(** :ref:`Variant<class_Variant>` id, :ref:`Variant<class_Variant>` meta **)** virtual   |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`bool<class_bool>` | :ref:`_idle<class_MainLoop_method__idle>` **(** :ref:`float<class_float>` delta **)** virtual                                                                    |
 +-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                    | :ref:`_initialize<class_MainLoop_method__initialize>` **(** **)** virtual                                                                                        |
@@ -127,7 +129,7 @@ Specific to the macOS platform.
 Description
 -----------
 
-``MainLoop`` is the abstract base class for a Godot project's game loop. It in inherited by :ref:`SceneTree<class_SceneTree>`, which is the default game loop implementation used in Godot projects, though it is also possible to write and use one's own ``MainLoop`` subclass instead of the scene tree.
+``MainLoop`` is the abstract base class for a Godot project's game loop. It is inherited by :ref:`SceneTree<class_SceneTree>`, which is the default game loop implementation used in Godot projects, though it is also possible to write and use one's own ``MainLoop`` subclass instead of the scene tree.
 
 Upon the application start, a ``MainLoop`` implementation must be provided to the OS; otherwise, the application will exit. This happens automatically (and a :ref:`SceneTree<class_SceneTree>` is created) unless a main :ref:`Script<class_Script>` is provided from the command line (with e.g. ``godot -s my_loop.gd``, which should then be a ``MainLoop`` implementation.
 
@@ -180,6 +182,10 @@ Called when files are dragged from the OS file manager and dropped in the game w
 - void **_finalize** **(** **)** virtual
 
 Called before the program exits.
+
+.. _class_MainLoop_method__global_menu_action:
+
+- void **_global_menu_action** **(** :ref:`Variant<class_Variant>` id, :ref:`Variant<class_Variant>` meta **)** virtual
 
 .. _class_MainLoop_method__idle:
 

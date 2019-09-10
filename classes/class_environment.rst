@@ -96,7 +96,7 @@ Properties
 +--------------------------------------------------------+----------------------------------------------------------------------------------------------------+------------------------------------+
 | :ref:`bool<class_bool>`                                | :ref:`fog_depth_enabled<class_Environment_property_fog_depth_enabled>`                             | true                               |
 +--------------------------------------------------------+----------------------------------------------------------------------------------------------------+------------------------------------+
-| :ref:`float<class_float>`                              | :ref:`fog_depth_end<class_Environment_property_fog_depth_end>`                                     | 0.0                                |
+| :ref:`float<class_float>`                              | :ref:`fog_depth_end<class_Environment_property_fog_depth_end>`                                     | 100.0                              |
 +--------------------------------------------------------+----------------------------------------------------------------------------------------------------+------------------------------------+
 | :ref:`bool<class_bool>`                                | :ref:`fog_enabled<class_Environment_property_fog_enabled>`                                         | false                              |
 +--------------------------------------------------------+----------------------------------------------------------------------------------------------------+------------------------------------+
@@ -104,9 +104,9 @@ Properties
 +--------------------------------------------------------+----------------------------------------------------------------------------------------------------+------------------------------------+
 | :ref:`bool<class_bool>`                                | :ref:`fog_height_enabled<class_Environment_property_fog_height_enabled>`                           | false                              |
 +--------------------------------------------------------+----------------------------------------------------------------------------------------------------+------------------------------------+
-| :ref:`float<class_float>`                              | :ref:`fog_height_max<class_Environment_property_fog_height_max>`                                   | 100.0                              |
+| :ref:`float<class_float>`                              | :ref:`fog_height_max<class_Environment_property_fog_height_max>`                                   | 0.0                                |
 +--------------------------------------------------------+----------------------------------------------------------------------------------------------------+------------------------------------+
-| :ref:`float<class_float>`                              | :ref:`fog_height_min<class_Environment_property_fog_height_min>`                                   | 0.0                                |
+| :ref:`float<class_float>`                              | :ref:`fog_height_min<class_Environment_property_fog_height_min>`                                   | 10.0                               |
 +--------------------------------------------------------+----------------------------------------------------------------------------------------------------+------------------------------------+
 | :ref:`float<class_float>`                              | :ref:`fog_sun_amount<class_Environment_property_fog_sun_amount>`                                   | 0.0                                |
 +--------------------------------------------------------+----------------------------------------------------------------------------------------------------+------------------------------------+
@@ -873,12 +873,14 @@ Enables the fog depth.
 - :ref:`float<class_float>` **fog_depth_end**
 
 +-----------+--------------------------+
-| *Default* | 0.0                      |
+| *Default* | 100.0                    |
 +-----------+--------------------------+
 | *Setter*  | set_fog_depth_end(value) |
 +-----------+--------------------------+
 | *Getter*  | get_fog_depth_end()      |
 +-----------+--------------------------+
+
+Fog's depth end distance from the camera. If this value is set to 0, it will be equal to the current camera's :ref:`Camera.far<class_Camera_property_far>` value.
 
 .. _class_Environment_property_fog_enabled:
 
@@ -892,7 +894,7 @@ Enables the fog depth.
 | *Getter*  | is_fog_enabled()       |
 +-----------+------------------------+
 
-Enables the fog. Needs fog_height_enabled and/or for_depth_enabled to actually display fog.
+Enables the fog. Needs :ref:`fog_height_enabled<class_Environment_property_fog_height_enabled>` and/or :ref:`fog_depth_enabled<class_Environment_property_fog_depth_enabled>` to actually display fog.
 
 .. _class_Environment_property_fog_height_curve:
 
@@ -927,28 +929,28 @@ Enables the fog height.
 - :ref:`float<class_float>` **fog_height_max**
 
 +-----------+---------------------------+
-| *Default* | 100.0                     |
+| *Default* | 0.0                       |
 +-----------+---------------------------+
 | *Setter*  | set_fog_height_max(value) |
 +-----------+---------------------------+
 | *Getter*  | get_fog_height_max()      |
 +-----------+---------------------------+
 
-Maximum height of fog.
+The Y coordinate where the height fog will be the most intense. If this value is greater than :ref:`fog_height_min<class_Environment_property_fog_height_min>`, fog will be displayed from bottom to top. Otherwise, it will be displayed from top to bottom.
 
 .. _class_Environment_property_fog_height_min:
 
 - :ref:`float<class_float>` **fog_height_min**
 
 +-----------+---------------------------+
-| *Default* | 0.0                       |
+| *Default* | 10.0                      |
 +-----------+---------------------------+
 | *Setter*  | set_fog_height_min(value) |
 +-----------+---------------------------+
 | *Getter*  | get_fog_height_min()      |
 +-----------+---------------------------+
 
-Minimum height of fog.
+The Y coordinate where the height fog will be the least intense. If this value is greater than :ref:`fog_height_max<class_Environment_property_fog_height_max>`, fog will be displayed from top to bottom. Otherwise, it will be displayed from bottom to top.
 
 .. _class_Environment_property_fog_sun_amount:
 

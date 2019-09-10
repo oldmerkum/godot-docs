@@ -479,6 +479,8 @@ The natural exponential function. It raises the mathematical constant **e** to t
 
 **e** has an approximate value of 2.71828.
 
+For exponents to other bases use the method :ref:`pow<class_@GDScript_method_pow>`.
+
 ::
 
     a = exp(2) # Approximately 7.39
@@ -1147,7 +1149,12 @@ Returns the position of the first non-zero digit, after the decimal point. Note 
 
 - :ref:`float<class_float>` **stepify** **(** :ref:`float<class_float>` s, :ref:`float<class_float>` step **)**
 
-Snaps float value ``s`` to a given ``step``.
+Snaps float value ``s`` to a given ``step``. This can also be used to round a floating point number to an arbitrary number of decimals.
+
+::
+
+    stepify(100, 32) # Returns 96
+    stepify(3.14159, 0.01) # Returns 3.14
 
 .. _class_@GDScript_method_str:
 
